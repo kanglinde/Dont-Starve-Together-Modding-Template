@@ -1,4 +1,4 @@
-'''bash
+```
 .
 ├── README.md
 ├── anim
@@ -23,4 +23,4 @@
 │   ├── stategraphs
 │   └── widgets
 └── sound
-'''
+```
