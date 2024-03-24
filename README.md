@@ -1,11 +1,12 @@
 ```
 .
-├── README.md
 ├── anim
 ├── images
 │   ├── colour_cubes
 │   └── inventoryimages
 ├── modicon.png
+├── modicon.tex
+├── modicon.xml
 ├── modinfo.lua
 ├── modmain.lua
 ├── scripts
