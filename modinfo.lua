@@ -1,6 +1,6 @@
 name = ""
-author = ""
-version = "0.0.0"
+author = "K"
+version = "1.0.0"
 description = "version: "..version
 api_version = 10
 
@@ -16,6 +16,27 @@ all_clients_require_mod = true
 --forge_compatible = true
 --gorge_compatible = true
 
+local function AddOption(des, data)
+     return { description = des or "", data = data or "" }
+end
+
+local function AddNumOptions(min, max)
+     local options = {}
+     while min <= max do
+          options[min] = AddOption(min, min)
+          min = min + 1
+     end
+     return options
+end
+
+local function AddTitle(label)
+	return { name = "", label = label or "", options = {AddOption()}, default = "" }
+end
+
+local function AddSwitch()
+     return { AddOption("On", true), AddOption("Off", false) }
+end
+
 configuration_options = 
 {
 	{
@@ -24,8 +45,8 @@ configuration_options =
 		hover = "",
 		options =	
 		{
-			{description = "English", data = "en"},
-			{description = "中文", data = "cn"},
+			AddOption("English", "en"),
+			AddOption("中文", "zh"),
 		},
 		default = "en",
 	},

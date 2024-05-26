@@ -1,4 +1,7 @@
-local TUNING = GLOBAL.TUNING
+local options = { "lan" }
+local config = {}
+for _,v in ipairs(options) do config[v] = GetModConfigData(v) end
+print(config.lan)
 
 PrefabFiles = {}
 

@@ -17,6 +17,7 @@
 │   ├── AddStategraph.lua
 │   ├── AddStategraph_client.lua
 │   ├── AddStrings.lua
+│   ├── brains
 │   ├── components
 │   │   └── component.lua
 │   ├── prefabs

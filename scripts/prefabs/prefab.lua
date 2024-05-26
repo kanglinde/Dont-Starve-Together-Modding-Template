@@ -8,19 +8,17 @@ local assets = {
      Asset("SOUND", "sound/.fsb"),
 }
 
-local function SaveData(inst, data, new_data)
+local function SaveData(inst, data, new_data)     -- DO NOT use with onsave()
      local old_data = inst.save_data[data]
      inst.save_data[data] = new_data and old_data or new_data
      return old_data
 end
 
 local function onsave(inst, data)
-     data.save_data = inst.save_data
 end
 
 local function onload(inst, data)
      if data then
-          if data.save_data then inst.save_data = data.save_data end
      end
 end
 
