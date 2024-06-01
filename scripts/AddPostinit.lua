@@ -4,7 +4,7 @@ local resolvefilepath = GLOBAL.resolvefilepath
 AddComponentPostInit("component", function(self)
 end)
 
-AddClassPostConstruct("component_replica", function(self)
+AddClassPostConstruct("components/component_replica", function(self)
 end)
 
 AddPrefabPostInit("prefab", function(inst)
