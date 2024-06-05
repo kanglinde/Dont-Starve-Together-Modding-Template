@@ -12,7 +12,7 @@
 ├── scripts
 │   ├── AddActions.lua
 │   ├── AddHandlers.lua
-│   ├── AddPostinit.lua
+│   ├── AddPostInit.lua
 │   ├── AddRecipes.lua
 │   ├── AddStategraph.lua
 │   ├── AddStategraph_client.lua
