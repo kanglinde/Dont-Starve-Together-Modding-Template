@@ -1,6 +1,3 @@
-local EQUIPSLOTS = GLOBAL.EQUIPSLOTS
-local resolvefilepath = GLOBAL.resolvefilepath
-
 AddComponentPostInit("component", function(self)
 end)
 
@@ -8,8 +5,13 @@ AddClassPostConstruct("components/component_replica", function(self)
 end)
 
 AddPrefabPostInit("prefab", function(inst)
-     if not GLOBAL.TheWorld.ismastersim then return end
-     -- components must be handled on server
+     if not TheWorld.ismastersim then return end
+     -- components should be handled on server
+end)
+
+AddPlayerPostInit(function(inst)
+	if not TheWorld.ismastersim then return end
+	-- components should be handled on server
 end)
 
 -------------------------- StategraphPostInit --------------------------

@@ -1,4 +1,3 @@
-local STRINGS = GLOBAL.STRINGS
 local lan = GetModConfigData("lan")
 
 STRINGS.NAMES.PREFAB = ""

@@ -1,7 +1,3 @@
-local ActionHandler = GLOBAL.ActionHandler
-local EventHandler = GLOBAL.EventHandler
-local TheInput = GLOBAL.TheInput
-
 AddModRPCHandler("MOD_TAG", "RPCname", function(player) -- client >> server
 end)
 

@@ -1,26 +1,46 @@
-local options = { "lan" }
-local config = {}
-for _,v in ipairs(options) do config[v] = GetModConfigData(v) end
-print(config.lan)
+GLOBAL.setmetatable(env,{__index=function(t,k) return GLOBAL.rawget(GLOBAL,k) end})
 
 PrefabFiles = {}
 
-Assets = {
-     Asset( "ANIM", "anim/.zip" ),
-
-     Asset("ATLAS", "images/.xml"),
-     Asset("IMAGE", "images/.tex"),
-
-     Asset("SOUNDPACKAGE", "sound/.fev"),
-     Asset("SOUND", "sound/.fsb"),
+local assets_files = {
+     image = {},
+     bigport = {},
+     anim = {},
 }
 
--- TUNING and STRINGS first
+Assets = {}
+for k,v in pairs(assets_files) do
+     if k == "image" then
+          for _,file in ipairs(v) do
+               table.insert(Assets, Asset("ATLAS", "images/"..file..".xml"))
+               table.insert(Assets, Asset("IMAGE", "images/"..file..".tex"))
+          end
+     elseif k == "bigport" then
+          for _,file in ipairs(v) do
+               table.insert(Assets, Asset("ATLAS", "bigportraits/"..file..".xml"))
+               table.insert(Assets, Asset("IMAGE", "bigportraits/"..file..".tex"))
+          end
+     elseif k == "anim" then
+          for _,file in ipairs(v) do
+               table.insert(Assets, Asset("ANIM", "anim/"..file..".zip"))
+          end
+     end
+end
 
-modimport("scripts/AddStrings")
-modimport("scripts/AddActions")
-modimport("scripts/AddHandlers")
-modimport("scripts/AddPostinit")
-modimport("scripts/AddRecipes")
-modimport("scripts/AddStategraph")
-modimport("scripts/AddStategraph_client")
+RegisterInventoryItemAtlas("images/inventoryimages/.xml", ".tex")
+AddMinimapAtlas("images/.xml")
+
+local import_files = {
+     "AddTunings",
+     "AddStrings",
+     "AddActions",
+     "AddHandlers",
+     "AddPostinit",
+     "AddRecipes",
+     "AddStategraph",
+     "AddStategraph_client",
+}
+
+for _,v in ipairs(import_files) do
+     modimport("scripts/"..v)
+end
