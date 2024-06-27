@@ -37,12 +37,25 @@ for _,state in pairs(NewStates) do
      AddStategraphState("wilson", state)
 end
 
--- new handlers
-AddStategraphActionHandler("wilson", ActionHandler(ACTIONS.action, fn))
 
-AddStategraphEvent("wilson", EventHandler(event, fn))
+local NewActions = 
+{
+}
 
--- change existed handlers
+for act,state in pairs(NewActions) do
+     AddStategraphActionHandler("wilson", ActionHandler(ACTIONS[act], state))
+end
+
+
+local NewEvents = 
+{
+}
+
+for event,fn in pairs(NewEvents) do
+     AddStategraphEvent("wilson", EventHandler(event, fn))
+end
+
+
 local function ChangeActionHandler(inst, action, fn)
 	local old_handler = inst.actionhandlers[action].deststate
 	inst.actionhandlers[act].deststate = function(inst, action)
