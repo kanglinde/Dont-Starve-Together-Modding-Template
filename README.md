@@ -3,7 +3,8 @@
 ├── anim
 ├── images
 │   ├── colour_cubes
-│   └── inventoryimages
+│   ├── inventoryimages
+│   └── map_icons
 ├── modicon.png
 ├── modicon.tex
 ├── modicon.xml
