@@ -16,32 +16,17 @@ end)
 
 -------------------------- StategraphPostInit --------------------------
 
-local function ChangeActionHandler(inst, act, fn)
-	local old_handler = inst.actionhandlers[act].deststate
+local function ChangeActionHandler(inst, action, fn)
+	local old_handler = inst.actionhandlers[action].deststate
 	inst.actionhandlers[act].deststate = function(inst, action)
-		if IsIronlord(inst) then
-			if type(fn) == "function" then
-				return fn(inst, action, old_handler)
-			elseif type(fn) == "string" then
-				return fn
-			end
-		end
-		return old_handler(inst, action)
+		return fn(inst, action, old_handler)
 	end
 end
 
 local function ChangeEventHandler(inst, event, fn)
 	local old_handler = inst.events[event].fn 
 	inst.events[event].fn  = function(inst, data)
-		if IsIronlord(inst) then
-			if type(fn) == "function" then
-				fn(inst, data, old_handler)
-			elseif type(fn) == "string" then
-				inst.sg:GoToState(fn, data)
-			end
-			return
-		end
-		old_handler(inst, data)
+		fn(inst, data, old_handler)
 	end
 end
 
