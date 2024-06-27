@@ -15,14 +15,3 @@ end)
 
 TheInput:AddMoveHandler(function()
 end)
-
-local function AddActionHandler(action, state)
-	action = ACTIONS[action]
-	AddStategraphActionHandler("wilson", ActionHandler(action, state))
-	AddStategraphActionHandler("wilson_client", ActionHandler(action, state))
-end
-
-local function AddEventHandler(event, fn)
-	AddStategraphEvent("wilson", EventHandler(event, fn))
-	AddStategraphEvent("wilson_client", EventHandler(event, fn))
-end
