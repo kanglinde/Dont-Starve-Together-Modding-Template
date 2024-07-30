@@ -15,8 +15,8 @@
 │   ├── AddHandlers.lua
 │   ├── AddPostInit.lua
 │   ├── AddRecipes.lua
-│   ├── AddStategraph.lua
-│   ├── AddStategraph_client.lua
+│   ├── AddStates.lua
+│   ├── AddStates_client.lua
 │   ├── AddStrings.lua
 │   ├── AddTunings.lua
 │   ├── brains
