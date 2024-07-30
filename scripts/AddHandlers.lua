@@ -1,12 +1,13 @@
-AddModRPCHandler("MOD_TAG", "RPCname", function(player) -- client >> server
+-- modname == "workshop-id"
+AddModRPCHandler(modname, "RPCname", function(player) -- client >> server
 end)
 
-AddClientModRPCHandler("MOD_TAG", "RPCname", function() -- server >> client
+AddClientModRPCHandler(modname, "RPCname", function() -- server >> client
 end)
 
 -- Sending RPC
-SendModRPCToServer(GetModRPC("MOD_TAG", "RPCname"))
-SendModRPCToClient(GetClientModRPC("MOD_TAG", "RPCname"), client.userid)
+SendModRPCToServer(GetModRPC(modname, "RPCname"))
+SendModRPCToClient(GetClientModRPC(modname, "RPCname"), client.userid)
 
 -- TheInput == input devices(mouse/keyboard/controller)
 -- Only work on client?

@@ -1,4 +1,4 @@
-name = ""
+name = (locale == "zh" or locale == "zhr") and "" or ""
 author = "K"
 version = "1.0.0"
 description = "version: "..version
@@ -16,17 +16,21 @@ all_clients_require_mod = true
 --forge_compatible = true
 --gorge_compatible = true
 
+priority = 0
+
 local function AddOption(des, data)
      return { description = des or "", data = data or "" }
 end
 
-local function AddNumOptions(min, max)
+local function AddNumOptions(min, max, step)
+	step = step or 1
      local options = {}
-     while min <= max do
-          options[min] = AddOption(min, min)
-          min = min + 1
-     end
-     return options
+	local iter = min
+	while iter <= max do
+		options[iter-min+1] = AddOption(iter, iter)
+		iter = iter + 1
+	end
+	return options
 end
 
 local function AddTitle(label)

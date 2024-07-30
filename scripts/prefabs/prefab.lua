@@ -8,12 +8,6 @@ local assets = {
      Asset("SOUND", "sound/.fsb"),
 }
 
-local function SaveData(inst, data, new_data)     -- DO NOT use with onsave()
-     local old_data = inst.save_data[data]
-     inst.save_data[data] = new_data and old_data or new_data
-     return old_data
-end
-
 local function onsave(inst, data)
 end
 
@@ -32,11 +26,11 @@ local function fn()
      MakeInventoryPhysics(inst)
      MakeInventoryFloatable(inst, "med")
 
-     inst:AddTag("")
-
      inst.AnimState:SetBank("")
      inst.AnimState:SetBuild("")
      inst.AnimState:PlayAnimation("idle")
+
+     inst:AddTag("")
 
      inst.entity:SetPristine()
 
@@ -48,7 +42,6 @@ local function fn()
 
      inst.OnSave = onsave
      inst.OnLoad = onload
-     inst.save_data = {}
 
      MakeHauntableLaunch(inst)
 
