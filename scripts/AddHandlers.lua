@@ -3,6 +3,7 @@ AddModRPCHandler(modname, "RPCname", function(player) -- client >> server
 end)
 
 AddClientModRPCHandler(modname, "RPCname", function() -- server >> client
+    -- ThePlayer
 end)
 
 -- Sending RPC
