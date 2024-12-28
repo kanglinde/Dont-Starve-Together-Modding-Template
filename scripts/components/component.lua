@@ -2,13 +2,13 @@ local function onexample(self, val)
 end
 
 local Component = Class(function(self, inst)
-     self.inst = inst
-     self.example = false
+    self.inst = inst
+    self.example = false
 
-     --self.inst:StartUpdatingComponent(self)
+    --self.inst:StartUpdatingComponent(self)
 end,
 {
-     example = onexample,
+    example = onexample,
 })
 
 function Component:Fn()

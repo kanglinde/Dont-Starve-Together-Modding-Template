@@ -1,51 +1,51 @@
 local assets = {
-     Asset( "ANIM", "anim/.zip" ),
+    Asset( "ANIM", "anim/.zip" ),
 
-     Asset("ATLAS", "images/.xml"),
-     Asset("IMAGE", "images/.tex"),
+    Asset("ATLAS", "images/.xml"),
+    Asset("IMAGE", "images/.tex"),
 
-     Asset("SOUNDPACKAGE", "sound/.fev"),
-     Asset("SOUND", "sound/.fsb"),
+    Asset("SOUNDPACKAGE", "sound/.fev"),
+    Asset("SOUND", "sound/.fsb"),
 }
 
 local function onsave(inst, data)
 end
 
 local function onload(inst, data)
-     if data then
-     end
+    if data then
+    end
 end
 
 local function fn()
-     local inst = CreateEntity()
-     inst.entity:AddTransform()
-     inst.entity:AddAnimState()
-     inst.entity:AddSoundEmitter()
-     inst.entity:AddNetwork()
+    local inst = CreateEntity()
+    inst.entity:AddTransform()
+    inst.entity:AddAnimState()
+    inst.entity:AddSoundEmitter()
+    inst.entity:AddNetwork()
 
-     MakeInventoryPhysics(inst)
-     MakeInventoryFloatable(inst, "med")
+    MakeInventoryPhysics(inst)
+    MakeInventoryFloatable(inst, "med")
 
-     inst.AnimState:SetBank("")
-     inst.AnimState:SetBuild("")
-     inst.AnimState:PlayAnimation("idle")
+    inst.AnimState:SetBank("")
+    inst.AnimState:SetBuild("")
+    inst.AnimState:PlayAnimation("idle")
 
-     inst:AddTag("")
+    inst:AddTag("")
 
-     inst.entity:SetPristine()
+    inst.entity:SetPristine()
 
-     if not TheWorld.ismastersim then
-          return inst
-     end
+    if not TheWorld.ismastersim then
+        return inst
+    end
 
-     inst:AddComponent("")
+    inst:AddComponent("")
 
-     inst.OnSave = onsave
-     inst.OnLoad = onload
+    inst.OnSave = onsave
+    inst.OnLoad = onload
 
-     MakeHauntableLaunch(inst)
+    MakeHauntableLaunch(inst)
 
-     return inst
+    return inst
 end
 
 return Prefab("", fn, assets)

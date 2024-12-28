@@ -3,13 +3,13 @@ GLOBAL.setmetatable(env,{__index=function(t,k) return GLOBAL.rawget(GLOBAL,k) en
 PrefabFiles = {}
 
 Assets = {
-     Asset( "ANIM", "anim/.zip" ),
+    Asset("ANIM", "anim/.zip" ),
 
-     Asset("ATLAS", "images/.xml"),
-     Asset("IMAGE", "images/.tex"),
+    Asset("ATLAS", "images/.xml"),
+    Asset("IMAGE", "images/.tex"),
 
-     Asset("SOUNDPACKAGE", "sound/.fev"),
-     Asset("SOUND", "sound/.fsb"),
+    Asset("SOUNDPACKAGE", "sound/.fev"),
+    Asset("SOUND", "sound/.fsb"),
 }
 
 RegisterInventoryItemAtlas("images/inventoryimages/.xml", ".tex")

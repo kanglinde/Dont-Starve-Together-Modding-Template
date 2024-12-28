@@ -19,12 +19,12 @@ all_clients_require_mod = true
 priority = 0
 
 local function AddOption(des, data)
-     return { description = des or "", data = data or "" }
+	return { description = des or "", data = data or "" }
 end
 
 local function AddNumOptions(min, max, step)
 	step = step or 1
-     local options = {}
+	local options = {}
 	local iter = min
 	while iter <= max do
 		options[iter-min+1] = AddOption(iter, iter)
@@ -38,7 +38,7 @@ local function AddTitle(label)
 end
 
 local function AddSwitch()
-     return { AddOption("On", true), AddOption("Off", false) }
+	return { AddOption("On", true), AddOption("Off", false) }
 end
 
 configuration_options = 
