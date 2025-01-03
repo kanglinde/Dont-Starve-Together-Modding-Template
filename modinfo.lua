@@ -18,27 +18,19 @@ all_clients_require_mod = true
 
 priority = 0
 
-local function AddOption(des, data)
-	return { description = des or "", data = data or "" }
-end
-
 local function AddNumOptions(min, max, step)
 	step = step or 1
 	local options = {}
 	local iter = min
 	while iter <= max do
-		options[iter-min+1] = AddOption(iter, iter)
+		options[iter-min+1] = {description = iter, data = iter}
 		iter = iter + 1
 	end
 	return options
 end
 
 local function AddTitle(label)
-	return { name = "", label = label or "", options = {AddOption()}, default = "" }
-end
-
-local function AddSwitch()
-	return { AddOption("On", true), AddOption("Off", false) }
+	return {name = "", label = label or "", options = {{description="", data=""}}, default = ""}
 end
 
 configuration_options = 
@@ -46,11 +38,10 @@ configuration_options =
 	{
 		name = "lan",
 		label = "Language/语言设置",
-		hover = "",
 		options =	
 		{
-			AddOption("English", "en"),
-			AddOption("中文", "zh"),
+			{description = "English", data = "en"},
+			{description = "中文", data = "zh"},
 		},
 		default = "en",
 	},

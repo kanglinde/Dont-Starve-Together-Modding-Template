@@ -23,7 +23,7 @@ local NewStates =
      
         timeline=
         {
-            TimeEvent(n * FRAMES, function(inst)
+            TimeEvent(n*FRAMES, function(inst)
             end),
         },
 

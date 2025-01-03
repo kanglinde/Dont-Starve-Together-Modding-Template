@@ -1,4 +1,5 @@
 AddAction(name, STRINGS.ACTIONS[name], function(act)
+    return true
 end)
 ACTIONS.NAME.mount_valid = true
 

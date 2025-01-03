@@ -33,3 +33,5 @@ end)
 
 AddStategraphPostInit("wilson_client", function(inst)
 end)
+
+-- stategraph's name = inst.sg.sg.name

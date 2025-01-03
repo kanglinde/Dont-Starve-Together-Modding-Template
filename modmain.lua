@@ -17,3 +17,5 @@ RegisterInventoryItemAtlas("images/inventoryimages/.xml", ".tex")
 AddMinimapAtlas("images/.xml")
 
 modimport("")
+
+AddReplicableComponent("component")
