@@ -1,21 +1,21 @@
 -- modname == "workshop-id"
 
 -- client >> server
-AddModRPCHandler(modname, "RPCname", function(player) 
+AddModRPCHandler(modname, "RPCname", function(player, ...) 
 end)
 
-SendModRPCToServer(GetModRPC(modname, "RPCname"))
+SendModRPCToServer(GetModRPC(modname, "RPCname"), ...)
 
 -- server >> client
-AddClientModRPCHandler(modname, "RPCname", function()
+AddClientModRPCHandler(modname, "RPCname", function(...)
     -- ThePlayer
 end)
 
-SendModRPCToClient(GetClientModRPC(modname, "RPCname"), client.userid)
+SendModRPCToClient(GetClientModRPC(modname, "RPCname"), client.userid, ...)
+-- "client.userid" can be a list, if nil then "all clients" in the same shard
 
 
 -- TheInput == input devices(mouse/keyboard/controller)
--- Only works on client?
 TheInput:AddControlHandler(GLOBAL.CONTROL_NAME, function(down)
 end)
 

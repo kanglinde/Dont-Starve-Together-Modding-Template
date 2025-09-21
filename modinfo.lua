@@ -38,6 +38,7 @@ configuration_options =
 	{
 		name = "lan",
 		label = "Language/语言设置",
+		hover = "",
 		options =	
 		{
 			{description = "English", data = "en"},
